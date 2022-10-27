@@ -1,0 +1,17 @@
+.Cart {
+    background: #021222;
+    height: 80px;
+    position: relative;
+    width: 80px;
+}
+
+.cart-icon {
+    width: 30px;
+    height: 30px;
+    color: #d1faf4;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
