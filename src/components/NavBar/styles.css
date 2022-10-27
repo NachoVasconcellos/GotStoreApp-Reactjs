@@ -9,7 +9,6 @@ nav {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    max-width: 1000px;
     line-height: 80px;
     z-index: 100;
 }
