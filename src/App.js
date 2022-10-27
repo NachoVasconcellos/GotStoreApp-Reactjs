@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <ItemListContainer greeting={"PAGINA EN PROCESO"}/>
+      <ItemListContainer greeting={"Loading page..."}/>
     </div>
 
   );
