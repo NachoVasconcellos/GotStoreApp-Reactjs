@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget";
 import "./styles.css";
 
@@ -8,7 +9,7 @@ const NavBar = () => {
 
         <nav className="links ">
           <li className="link">
-            <a href="#home">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className="link">
             <a href="#about">About</a>
