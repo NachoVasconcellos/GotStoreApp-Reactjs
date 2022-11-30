@@ -6,3 +6,22 @@
     transform: translateX(-50%) translateY(-50%);
     font-size: 1em;
 }
+
+.anuncio {
+    color: #8dd6cb;
+    background: #8dd6cb;
+    border: 2px solid #8dd6cb;
+    border-radius: 6px;
+    border: none;
+      color: #021222;
+      padding: 16px 32px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+}

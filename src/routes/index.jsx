@@ -4,6 +4,7 @@ import Root from "../components/Root";
 import ItemDetailContainer from "../components/containers/ItemDetailContainer";
 import ItemListContainer from "../components/containers/ItemListContainer";
 import NavBar from "../components/NavBar";
+import CartContainer from "../components/containers/CartContainer";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: "/detail/:id",
                 element: <ItemDetailContainer/>,
+            },
+            {
+                path: "/cart",
+                element: <CartContainer/>,
             },
         ],
     },

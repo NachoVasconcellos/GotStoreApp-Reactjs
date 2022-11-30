@@ -6,7 +6,11 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    
+}
+
+.texts {
+    display: flex;
+    flex-direction: column;
 }
 
 .img-detail {

@@ -29,3 +29,18 @@ nav {
 .links .link a:hover {
     color: #487abb;
 }
+
+/* .container-light {
+    @extend .container;
+    background-color: #d1faf4;
+    border: 1px solid #021222;
+} */
+
+.select {
+    background-color: #d1faf4;
+    color: #021222;
+}
+
+.select option {
+    color: #021222;
+}
