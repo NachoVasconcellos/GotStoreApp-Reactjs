@@ -13,5 +13,16 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
+.cart-icon:hover {
+    color: #487abb;
+}
+
+/* .links .link a:hover {
+    color: #487abb;
+} */

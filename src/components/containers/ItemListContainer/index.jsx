@@ -4,6 +4,8 @@ import ItemList from "../../ItemList";
 import "./styles.css";
 import { CircleLoader } from "react-spinners";
 import Ad from "../../Ad";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../../firebase/config";
 
 export default function ItemListContainer({ greeting }) {
   const [products, setProducts] = useState([]);
@@ -34,13 +36,36 @@ export default function ItemListContainer({ greeting }) {
       //     setProducts(data)
       try {
         console.log(categoryId);
-        let response = await fetch("https://thronesapi.com/api/v2/Characters");
-        const data = await response.json();
+        // let response = await fetch("https://thronesapi.com/api/v2/Characters");
+        
+        // const data = await response.json();
+
+        //Codigo añadido de la documentacion de firestore
+        //1er paso armar la query
+        let q;
         if (categoryId) {
-          setProducts(data.filter((p) => p.lastName === categoryId));
-        } else {
-          setProducts(data);
+          q = query(collection(db, "character"), where("lastName", "==", categoryId))
+        } else { 
+          q = query(collection(db, "character"));
         }
+        //2do paso realizar la query
+        const querySnapshot = await getDocs(q);
+        const productosFirebase = [];
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          productosFirebase.push({...doc.data(), id: doc.id})
+        });
+        setProducts(productosFirebase);
+
+        //guardo por las dudas esto
+        // const data = await response.json();
+        // if (categoryId) {
+        //   setProducts(data.filter((p) => p.lastName === categoryId));
+        // } else {
+        //   setProducts(data);
+        // }
+
       } catch (error) {
         console.log(error);
       }
@@ -73,7 +98,7 @@ export default function ItemListContainer({ greeting }) {
       {/* // <div className="mensaje">
         //     <h1>{greeting}</h1>
         // </div> */}
-      {products.length ? <ItemList products={products} /> : <CircleLoader />}
+      {products.length ? <ItemList products={products} /> : <CircleLoader className="loader"/>}
 
       {adWiew ? (
         <Ad>

@@ -1,16 +1,7 @@
-.mensaje {
-    color: #d1faf4;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 1em;
-}
-
-.anuncio {
-    color: #8dd6cb;
+.button {
+    color: #021222;
     background: #8dd6cb;
-    border: 2px solid #8dd6cb;
+    border: 2px solid #021222;
     border-radius: 6px;
     border: none;
       color: #021222;
@@ -24,8 +15,4 @@
       cursor: pointer;
       text-decoration: none;
       text-transform: uppercase;
-}
-
-.loader {
-    fill: #d1faf4;
 }
