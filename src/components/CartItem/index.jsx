@@ -14,7 +14,7 @@ const CartItem = ({item}) => {
     <div style={{
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'left',
+      justifyContent: 'center',
       padding: 30,
       gap: 50,
       alignItems: 'center'

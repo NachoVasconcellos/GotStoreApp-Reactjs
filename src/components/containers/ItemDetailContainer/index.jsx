@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../ItemDetail";
-import {CircleLoader} from "react-spinners"
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/config";
+import Loader from "../../Loader";
 
 
 const ItemDetailContainer = () => {
@@ -40,7 +40,7 @@ const ItemDetailContainer = () => {
         //hacer el fetch del detalle del producto 
     }, [id])
 
-    return (character ? <ItemDetail character={character}/> : <CircleLoader/>)
+    return (character ? <ItemDetail character={character}/> : <Loader/>)
 };
 
 export default ItemDetailContainer;

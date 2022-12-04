@@ -5,21 +5,27 @@ import CartItem from "../../CartItem";
 import "./styles.css";
 import { doc, getDoc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/config";
+import { FormBasic } from "../../Form/Form";
+import { useForm } from 'react-hook-form'
+
 
 const CartContainer = () => {
   const { products, calculateTotal } = useContext(Shop);
 
+  const buyer =  useForm()
+  
   const confirmPurchase = () => {
     //Mostar un formulario de compra donde el usuario ingrese sus datos(eliminar esto hardcodeado)
     (async () => {
-      const nombreComprador = "Nacho";
-      const telefono = 123123123;
-      const email = "nachovasoncellos@gmail.com";
+
 
       const generatedOrder = generateOrderObject(
-        nombreComprador,
-        email,
-        telefono,
+        buyer.name,
+        buyer.phone,
+        buyer.email,
+        // nombreComprador,
+        // email,
+        // telefono,
         products,
         calculateTotal()
       );
@@ -77,9 +83,10 @@ const CartContainer = () => {
       {products.map((product) => {
         return <CartItem key={product.id} item={product} />;
       })}
-      <button className="button" onClick={confirmPurchase}>
+      {/* <button className="button" onClick={confirmPurchase}>
         Confirm Purchase
-      </button>
+      </button> */}
+      <FormBasic confirmPurchase={confirmPurchase} buyer={buyer}/>
     </div>
   );
 };

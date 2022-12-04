@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../ItemList";
 import "./styles.css";
-import { CircleLoader } from "react-spinners";
 import Ad from "../../Ad";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/config";
+import Loader from "../../Loader";
 
 export default function ItemListContainer({ greeting }) {
   const [products, setProducts] = useState([]);
@@ -76,7 +76,7 @@ export default function ItemListContainer({ greeting }) {
 
   useEffect(() => {
     const handleEsc = (event) => {
-        console.log(event); //Evento nativo del browser
+        // console.log(event); //Evento nativo del browser
 
         if (event.keyCode === 27) {
             console.log("will close");
@@ -98,7 +98,7 @@ export default function ItemListContainer({ greeting }) {
       {/* // <div className="mensaje">
         //     <h1>{greeting}</h1>
         // </div> */}
-      {products.length ? <ItemList products={products} /> : <CircleLoader className="loader"/>}
+      {products.length ? <ItemList products={products} /> : <Loader/>}
 
       {adWiew ? (
         <Ad>
