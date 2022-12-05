@@ -5,7 +5,7 @@ import "./styles.css";
 export const FormBasic = () => {
     const { register, handleSubmit, formState: { errors }} = useForm()
     
-    const [datos, setDatos] = useState({
+    const [data, setDatos] = useState({
         name: 'name',
         phone: 'phone',
         email: 'email',
@@ -13,7 +13,7 @@ export const FormBasic = () => {
 
     const handleInputChange = (event) => {
         setDatos({
-            ...datos,
+            ...data,
             [event.target.name] : event.target.value
         })
     }
