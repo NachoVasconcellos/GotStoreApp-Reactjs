@@ -5,42 +5,30 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/config";
 import Loader from "../../Loader";
 
-
 const ItemDetailContainer = () => {
+  const { id } = useParams();
+  const [character, setCharacter] = useState(null);
 
-    const {id} = useParams()
+  useEffect(() => {
+    const getCharacterDetail = async () => {
+      const docRef = doc(db, "character", id);
 
-    const [character, setCharacter] = useState(null)
+      //2do generar la peticion
+      const docSnap = await getDoc(docRef);
 
-    useEffect(() => {
-
-       
-    const getCharacterDetail = async () => {    
-        // const response = await fetch(`https://thronesapi.com/api/v2/Characters/${id}`)
-
-        //Viene de la docu de firebase
-        //1re generamos la referencia del documento.Tercer parametro es el ID del documento a consultar
-        const docRef = doc(db, "character", id);
-
-        //2do generar la peticion
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
+      if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        setCharacter({...docSnap.data(), id: docSnap.id})
-        } else {
+        setCharacter({ ...docSnap.data(), id: docSnap.id });
+      } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
-        }
-        // const character = await response.json();
-        // setCharacter(character)
-    }
+      }
+    };
 
-        getCharacterDetail()
-        //hacer el fetch del detalle del producto 
-    }, [id])
+    getCharacterDetail();
+  }, [id]);
 
-    return (character ? <ItemDetail character={character}/> : <Loader/>)
+  return character ? <ItemDetail character={character} /> : <Loader />;
 };
 
 export default ItemDetailContainer;

@@ -18,7 +18,7 @@ const Item = ({product}) => {
   return (
     <div onClick={navigateDetail} className={ themeColor === "dark" ? "card-detail" : "card-detail-light"}>
       <img src={product.imageUrl} alt="character" className='img'/>
-      <p key={product.id}>{product.fullName}, stock: {10}</p>
+      <p key={product.id}>{product.fullName}, stock: {product.quantity}</p>
     </div>
   )
 }

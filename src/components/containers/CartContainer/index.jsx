@@ -9,7 +9,7 @@ import { FormBasic } from "../../Form/Form";
 import { useForm } from 'react-hook-form'
 
 
-const CartContainer = () => {
+export const CartContainer = () => {
   const { products, calculateTotal } = useContext(Shop);
 
   const buyer =  useForm()
@@ -17,12 +17,10 @@ const CartContainer = () => {
   const confirmPurchase = () => {
     //Mostar un formulario de compra donde el usuario ingrese sus datos(eliminar esto hardcodeado)
     (async () => {
-
+      await FormBasic()
 
       const generatedOrder = generateOrderObject(
-        buyer.name,
-        buyer.phone,
-        buyer.email,
+        FormBasic(),
         // nombreComprador,
         // email,
         // telefono,

@@ -7,8 +7,8 @@ export const FormBasic = ({buyer, confirmPurchase}) => {
     
     const customSubmit = (data) => {
         console.log(data)
-        buyer = data;
-        confirmPurchase()
+        buyer = {...customSubmit};
+        confirmPurchase(data)
     }
 
   return (
