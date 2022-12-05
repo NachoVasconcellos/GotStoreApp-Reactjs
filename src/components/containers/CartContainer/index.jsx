@@ -6,21 +6,18 @@ import "./styles.css";
 import { doc, getDoc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/config";
 import { FormBasic } from "../../Form/Form";
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 
 
 export const CartContainer = () => {
   const { products, calculateTotal } = useContext(Shop);
 
-  const buyer =  useForm()
-  
+ 
   const confirmPurchase = () => {
     //Mostar un formulario de compra donde el usuario ingrese sus datos(eliminar esto hardcodeado)
     (async () => {
-      await FormBasic()
 
       const generatedOrder = generateOrderObject(
-        FormBasic(),
         // nombreComprador,
         // email,
         // telefono,
@@ -84,7 +81,7 @@ export const CartContainer = () => {
       {/* <button className="button" onClick={confirmPurchase}>
         Confirm Purchase
       </button> */}
-      <FormBasic confirmPurchase={confirmPurchase} buyer={buyer}/>
+      <FormBasic confirmPurchase={confirmPurchase}/>
     </div>
   );
 };
